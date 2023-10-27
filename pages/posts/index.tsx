@@ -1,9 +1,10 @@
+import {GetStaticProps} from "next";
 import Heading from "../../components/Heading";
 import Head from 'next/head'
 import Link from "next/link";
 import s from '../../styles/Posts.module.scss'
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await response.json()
     if (!data) {
@@ -11,7 +12,6 @@ export const getStaticProps = async () => {
             notFound: true
         }
     }
-
     return {
         props: { posts: data }
     }
@@ -23,7 +23,6 @@ const Posts = ({posts}) => {
               <title>Posts</title>
           </Head>
           <Heading text='Posts list:'/>
-          {/*<p>Lorem ipsum dolor sit amet, consectetur adip</p>*/}
           <ul className={s.posts}>
               {posts && posts.map(({id, title}) => (
                   <li key={id}>

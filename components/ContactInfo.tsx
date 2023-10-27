@@ -1,20 +1,21 @@
 import Heading from "./Heading";
-import {contactType} from "../types";
-import {FC} from "react";
+import {ContactType} from "../types";
+import {ComponentType, FC} from "react";
 
-type contactInfoPropsType = {
-    contact: contactType
+type ContactInfoPropsType = {
+    contact: ContactType
 }
-const ContactInfo:FC<contactInfoPropsType> = ({contact}) => {
+const ContactInfo:FC<ContactInfoPropsType> = ({contact}) => {
     const {name, email, address} = contact || {}
     const {street, suite, city, zipcode} = address || {}
+    const h3: ComponentType = 'h3' as unknown as ComponentType
 
     if(!contact) {
-        return <Heading tag='h3' text='Empty contact' />
+        return <Heading tag={h3} text='Empty contact' />
     }
     return (
         <>
-            <Heading tag='h3' text={name} />
+            <Heading tag={h3} text={name} />
             <div>
                 <strong>Email: </strong>
                 {email}
