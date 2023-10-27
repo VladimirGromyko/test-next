@@ -12,7 +12,6 @@ export const getStaticProps: GetStaticProps = async () => {
             notFound: true
         }
     }
-
     return {
         props: { contacts: data }
     }

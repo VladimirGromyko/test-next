@@ -2,10 +2,10 @@ import {GetServerSideProps} from 'next'
 import ContactInfo from "../../components/ContactInfo";
 import Head from "next/head";
 import {FC} from "react";
-import {contactType} from "../../types";
+import {ContactType} from "../../types";
 
 type ContactPropsType = {
-    contact: contactType
+    contact: ContactType
 }
 export const getServerSideProps:GetServerSideProps = async (context) => {
     const {id} = context.params

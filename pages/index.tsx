@@ -3,11 +3,11 @@ import Head from 'next/head'
 import Heading from "../components/Heading";
 import Socials from "../components/Socials";
 import {GetStaticProps} from 'next'
-import {socialsType} from "../types";
+import {SocialsType} from "../types";
 import {FC} from "react";
 
-type homePropsType = {
-    socials: [socialsType]
+type HomePropsType = {
+    socials: SocialsType[]
 }
 export const getStaticProps:GetStaticProps = async () => {
     const response = await fetch(`${process.env.API_HOST}/socials/`)
@@ -17,13 +17,12 @@ export const getStaticProps:GetStaticProps = async () => {
             notFound: true
         }
     }
-
     return {
         props: { socials: data }
     }
 }
 
-const Home: FC<homePropsType> = ({socials}) => {
+const Home: FC<HomePropsType> = ({socials}) => {
   return (
       <div className={s.wrapper}>
           <Head>
