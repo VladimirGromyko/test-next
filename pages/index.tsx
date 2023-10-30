@@ -6,12 +6,15 @@ import {GetStaticProps} from 'next'
 import {SocialsType} from "../types";
 import {FC} from "react";
 
+
 type HomePropsType = {
     socials: SocialsType[]
 }
 export const getStaticProps:GetStaticProps = async () => {
+    const API_HOST = process.env.API_HOST
+    console.log(API_HOST)
     try{
-        const response = await fetch(`${process.env.API_HOST}/socials`)
+        const response = await fetch(`${API_HOST}/socials`)
         const data = await response.json()
         if (!data) {
             return {
