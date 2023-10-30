@@ -22,9 +22,9 @@ export const getStaticProps:GetStaticProps = async () => {
             props: { socials: data }
         }
     } catch {
-        return {
-            props: { socials: null }
-        }
+        // return {
+        //     props: { socials: null }
+        // }
     }
 }
 
